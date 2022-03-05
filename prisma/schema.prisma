@@ -13,9 +13,9 @@ datasource db {
 // This is a system-level table, no UGC
 model Denomination {
   id             Int            @id @default(autoincrement())
-  parent         Denomination   @relation("DenominationToDenomination", fields: [denominationId], references: [id])
+  parent         Denomination?  @relation("DenominationToDenomination", fields: [denominationId], references: [id])
   name           String
-  denominationId Int
+  denominationId Int?
   Denomination   Denomination[] @relation("DenominationToDenomination")
   Church         Church[]
 }
