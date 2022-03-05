@@ -10,17 +10,29 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+// This is a system-level table, no UGC
+model Denomination {
+  id             Int            @id @default(autoincrement())
+  parent         Denomination   @relation("DenominationToDenomination", fields: [denominationId], references: [id])
+  name           String
+  denominationId Int
+  Denomination   Denomination[] @relation("DenominationToDenomination")
+  Church         Church[]
+}
+
 model Church {
-  id         Int      @id @default(autoincrement())
-  churchCode String   @unique @db.VarChar(255)
-  name       String   @db.VarChar(255)
-  city       String?  @db.VarChar(255)
-  state      String?  @db.VarChar(2)
-  zipCode    String?  @db.VarChar(5)
-  createdAt  DateTime @default(now())
-  updatedAt  DateTime @updatedAt
-  User       User[]
-  Survey     Survey[]
+  id             Int          @id @default(autoincrement())
+  churchCode     String       @unique @db.VarChar(255)
+  denomination   Denomination @relation(fields: [denominationId], references: [id])
+  name           String       @db.VarChar(255)
+  city           String?      @db.VarChar(255)
+  state          String?      @db.VarChar(2)
+  zipCode        String?      @db.VarChar(5)
+  createdAt      DateTime     @default(now())
+  updatedAt      DateTime     @updatedAt
+  User           User[]
+  Survey         Survey[]
+  denominationId Int
 }
 
 model User {
