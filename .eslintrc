@@ -1,0 +1,96 @@
+{
+  "extends": [
+    "plugin:@typescript-eslint/eslint-recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:@typescript-eslint/recommended-requiring-type-checking",
+    "@dmsi/eslint-config",
+    "prettier"
+  ],
+  "rules": {
+    "react/prop-types": 0,
+    "react/default-props-match-prop-types": 0,
+    "react/require-default-props": 0,
+    "no-console": [
+      "warn",
+      {
+        "allow": ["warn", "error"]
+      }
+    ],
+    "import/prefer-default-export": 0,
+    "import/extensions": [
+      "error",
+      {
+        "js": "never",
+        "ts": "never",
+        "tsx": "never"
+      }
+    ],
+    "no-redeclare": [
+      "error",
+      {
+        "builtinGlobals": false
+      }
+    ],
+    "react-hooks/exhaustive-deps": 0
+  },
+  "globals": {
+    "fetch": false,
+    "window": true,
+    "document": true,
+    "IntersectionObserver": true
+  },
+  "settings": {
+    "import/parsers": {
+      "@typescript-eslint/parser": [".ts", ".tsx"]
+    }
+  },
+  "ignorePatterns": [
+    "*.config.js",
+    "build.js"
+  ],
+  "overrides": [
+    {
+      "files": ["**/*.ts", "**/*.tsx"],
+      "parser": "@typescript-eslint/parser",
+      "parserOptions": {
+        "project": "tsconfig.json",
+        "ecmaVersion": 2018,
+        "ecmaFeatures": {
+          "jsx": true
+        },
+        "sourceType": "module"
+      },
+      "plugins": ["@typescript-eslint"],
+      "rules": {
+        "no-use-before-define": "off",
+        "@typescript-eslint/array-type": 1,
+        "@typescript-eslint/no-use-before-define": ["error"],
+        "@typescript-eslint/no-unnecessary-type-assertion": 0,
+        "no-void": 0,
+        "react/jsx-filename-extension": [
+          1,
+          {
+            "extensions": [".tsx"]
+          }
+        ]
+      },
+      "settings": {
+        "import/resolver": {
+          "node": {
+            "extensions": [".js", ".jsx", ".ts", ".tsx"],
+            "moduleDirectory": ["node_modules"]
+          }
+        },
+        "import/parsers": {
+          "@typescript-eslint/parser": [".ts", ".tsx"]
+        }
+      }
+    },
+    {
+      "files": ["**/*.test.ts"],
+      "rules": {
+        "@typescript-eslint/ban-ts-comment": 0
+      }
+    }
+  ]
+}

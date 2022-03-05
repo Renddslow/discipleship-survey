@@ -1,0 +1,62 @@
+{
+  "name": "discipleship-survey",
+  "version": "0.1.0",
+  "description": "A free, open-source app for issuing discipleship surveys for churches.",
+  "main": "dist/index.js",
+  "repository": "https://github.com/Renddslow/discipleship-survey",
+  "author": "Matt McElwee <mubatt@wyopub.com>",
+  "license": "MIT",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build:production": "yarn build --minify",
+    "build": "node build.cjs",
+    "eslint": "eslint",
+    "prepare": "husky install",
+    "release:changelog": "the-chronicler release"
+  },
+  "prettier": "@dmsi/prettier-config",
+  "lint-staged": {
+    "*.{ts,tsx,js,css,json,md}": [
+      "prettier --write"
+    ]
+  },
+  "ava": {
+    "concurrency": 4,
+    "files": [
+      "src/**/*.test.ts"
+    ],
+    "timeout": "1m",
+    "extensions": {
+      "ts": "module"
+    },
+    "nodeArguments": [
+      "--loader=ts-node/esm",
+      "--experimental-specifier-resolution=node"
+    ]
+  },
+  "chonicler": {
+    "linkPattern": "https://github.com/Renddslow/the-chronicler/compare/{{prev}}...{{next}}"
+  },
+  "devDependencies": {
+    "@dmsi/eslint-config": "^5.1.1",
+    "@dmsi/prettier-config": "^1.3.0",
+    "@typescript-eslint/eslint-plugin": "^5.13.0",
+    "@typescript-eslint/parser": "^5.13.0",
+    "ava": "^4.0.1",
+    "esbuild": "^0.14.25",
+    "eslint": "^8.10.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-import": "^2.25.4",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-react": "^7.29.3",
+    "eslint-plugin-react-hooks": "^4.3.0",
+    "husky": "^7.0.4",
+    "lint-staged": "^12.3.5",
+    "mri": "^1.2.0",
+    "prettier": "^2.5.1",
+    "the-chronicler": "^0.2.1",
+    "ts-node": "^10.6.0",
+    "typescript": "^4.6.2"
+  }
+}
