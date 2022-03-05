@@ -11,9 +11,12 @@
   "scripts": {
     "build:production": "yarn build --minify",
     "build": "node build.cjs",
+    "db:create": "docker run -d --name survey-db -p 5432:3306 -e MYSQL_ROOT_PASSWORD=unified-story mysql:latest",
     "eslint": "eslint",
     "prepare": "husky install",
-    "release:changelog": "the-chronicler release"
+    "release:changelog": "the-chronicler release",
+    "fmt": "prisma format",
+    "migrate": "prisma migrate dev"
   },
   "prettier": "@dmsi/prettier-config",
   "lint-staged": {
@@ -58,5 +61,12 @@
     "the-chronicler": "^0.2.1",
     "ts-node": "^10.6.0",
     "typescript": "^4.6.2"
+  },
+  "dependencies": {
+    "@prisma/client": "^3.10.0",
+    "prisma": "^3.10.0",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "styled-components": "^5.3.3"
   }
 }

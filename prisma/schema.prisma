@@ -1,0 +1,141 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model Church {
+  id         Int      @id @default(autoincrement())
+  churchCode String   @unique @db.VarChar(255)
+  name       String   @db.VarChar(255)
+  city       String?  @db.VarChar(255)
+  state      String?  @db.VarChar(2)
+  zipCode    String?  @db.VarChar(5)
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+  User       User[]
+  Survey     Survey[]
+}
+
+model User {
+  id             Int         @id @default(autoincrement())
+  church         Church      @relation(fields: [churchId], references: [id])
+  firstName      String      @db.VarChar(255)
+  lastName       String      @db.VarChar(255)
+  email          String      @db.VarChar(255)
+  churchId       Int
+  UserRoles      UserRoles[]
+  SurveysCreated Survey[]    @relation("createdBy")
+  SurveysUpdated Survey[]    @relation("updatedBy")
+  RewardsCreated Reward[]    @relation("reward_createdBy")
+  RewardsUpdated Reward[]    @relation("reward_updatedBy")
+}
+
+model Role {
+  id          Int         @id @default(autoincrement())
+  name        String      @unique @db.VarChar(50)
+  description String      @db.VarChar(255)
+  UserRoles   UserRoles[]
+}
+
+model UserRoles {
+  id     Int  @id @default(autoincrement())
+  user   User @relation(fields: [userId], references: [id])
+  role   Role @relation(fields: [roleId], references: [id])
+  userId Int
+  roleId Int
+}
+
+model Survey {
+  id               Int                @id @default(autoincrement())
+  church           Church             @relation(fields: [churchId], references: [id])
+  createdAt        DateTime           @default(now())
+  createdBy        User               @relation("createdBy", fields: [createdById], references: [id])
+  createdById      Int
+  updatedAt        DateTime           @updatedAt
+  updatedBy        User               @relation("updatedBy", fields: [updatedById], references: [id])
+  updatedById      Int
+  closesAt         DateTime
+  description      String?            @db.VarChar(255)
+  churchId         Int
+  hasReward        Boolean
+  SurveyCompletion SurveyCompletion[]
+  Reward           Reward[]
+  SurveyAnswer     SurveyAnswer[]
+  SurveySession    SurveySession[]
+}
+
+model SurveyCompletion {
+  id         Int      @id @default(autoincrement())
+  survey     Survey   @relation(fields: [surveyId], references: [id])
+  isComplete Boolean
+  email      String   @unique @db.VarChar(255)
+  surveyId   Int
+  createdAt  DateTime @default(now())
+  Reward     Reward[]
+}
+
+model Reward {
+  id                 Int               @id @default(autoincrement())
+  description        String?           @db.VarChar(255)
+  survey             Survey            @relation(fields: [surveyId], references: [id])
+  type               String
+  denomination       String?
+  createdAt          DateTime          @default(now())
+  createdBy          User              @relation("reward_createdBy", fields: [createdById], references: [id])
+  createdById        Int
+  updatedAt          DateTime          @updatedAt
+  updatedBy          User              @relation("reward_updatedBy", fields: [updatedById], references: [id])
+  updatedById        Int
+  surveyCompletion   SurveyCompletion? @relation(fields: [surveyCompletionId], references: [id])
+  surveyId           Int
+  surveyCompletionId Int?
+}
+
+// This is a system-level table, no UGC
+model SurveyQuestion {
+  id                   Int                    @id @default(autoincrement())
+  label                String                 @db.Text
+  type                 String                 @db.VarChar(255)
+  createdAt            DateTime               @default(now())
+  SurveyAnswer         SurveyAnswer[]
+  SurveyQuestionOption SurveyQuestionOption[]
+}
+
+// This is a system-level table, no UGC
+model SurveyQuestionOption {
+  id               Int            @id @default(autoincrement())
+  surveyQuestion   SurveyQuestion @relation(fields: [surveyQuestionId], references: [id])
+  label            String
+  type             String
+  value            String
+  createdAt        DateTime       @default(now())
+  surveyQuestionId Int
+}
+
+model SurveySession {
+  id           Int            @id @default(autoincrement())
+  survey       Survey         @relation(fields: [surveyId], references: [id])
+  createdAt    DateTime       @default(now())
+  updatedAt    DateTime       @updatedAt
+  completedAt  DateTime?
+  surveyId     Int
+  SurveyAnswer SurveyAnswer[]
+}
+
+model SurveyAnswer {
+  id               Int            @id @default(autoincrement())
+  survey           Survey         @relation(fields: [surveyId], references: [id])
+  surveyQuestion   SurveyQuestion @relation(fields: [surveyQuestionId], references: [id])
+  session          SurveySession  @relation(fields: [surveySessionId], references: [id])
+  value            String
+  surveyId         Int
+  surveyQuestionId Int
+  surveySessionId  Int
+}
