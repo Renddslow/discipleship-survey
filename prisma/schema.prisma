@@ -14,7 +14,7 @@ datasource db {
 model Denomination {
   id             Int            @id @default(autoincrement())
   parent         Denomination?  @relation("DenominationToDenomination", fields: [denominationId], references: [id])
-  name           String
+  name           String         @unique @db.VarChar(255)
   denominationId Int?
   Denomination   Denomination[] @relation("DenominationToDenomination")
   Church         Church[]

@@ -1,0 +1,26 @@
+{
+  "name": "Catholic",
+  "Denomination": [
+    {
+      "name": "Roman Catholic Church"
+    },
+    {
+      "name": "Byzantine Rite"
+    },
+    {
+      "name": "East Syriac Rite"
+    },
+    {
+      "name": "West Syriac Rite"
+    },
+    {
+      "name": "Armenian Rite"
+    },
+    {
+      "name": "Alexandrian Rite"
+    },
+    {
+      "name": "Independent Catholic"
+    }
+  ]
+}

@@ -22,6 +22,9 @@
   "lint-staged": {
     "*.{ts,tsx,js,css,json,md}": [
       "prettier --write"
+    ],
+    "*.prisma": [
+      "prisma format"
     ]
   },
   "ava": {
