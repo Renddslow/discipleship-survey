@@ -31,6 +31,9 @@ const subdomainExists = async (req: IncomingMessage, res: ServerResponse, next: 
     );
   }
 
+  // @ts-ignore
+  req.church = org;
+
   next();
 };
 

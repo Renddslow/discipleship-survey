@@ -47,10 +47,16 @@ polka()
   })
   .get('/api', (req, res) => {
     const linkify = makeLink(req);
+    // @ts-ignore
+    const { churchCode, id, denominationId, denomination, ...attributes } = req.church;
     res.json({
       data: {
         type: 'organization',
-        id: '<abcd>',
+        id: churchCode,
+        attributes: {
+          ...attributes,
+          denomination: denomination.name,
+        },
         links: {
           surveys: linkify('/surveys'),
           users: linkify('/users'),

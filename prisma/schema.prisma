@@ -149,7 +149,7 @@ model SurveyAnswer {
   survey           Survey         @relation(fields: [surveyId], references: [id])
   surveyQuestion   SurveyQuestion @relation(fields: [surveyQuestionId], references: [id])
   session          SurveySession  @relation(fields: [surveySessionId], references: [id])
-  value            String
+  value            String         @db.Text
   surveyId         Int
   surveyQuestionId Int
   surveySessionId  Int
