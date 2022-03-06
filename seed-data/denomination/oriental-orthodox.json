@@ -1,0 +1,19 @@
+{
+  "name": "Oriental Orthodox",
+  "Denomination": [
+    { "name": "Ethiopian Orthodox Tewahedo Church" },
+    { "name": "Coptic Orthodox Church" },
+    { "name": "Armenian Apostolic Church" },
+    { "name": "Mother See of Holy Etchmiadzin" },
+    { "name": "Holy See of Cilicia" },
+    { "name": "Armenian Patriarchate of Constantinople" },
+    { "name": "Armenian Patriarchate of Jerusalem" },
+    { "name": "Eritrean Orthodox Tewahedo Church" },
+    { "name": "Malankara Orthodox Syrian Church" },
+    { "name": "Syriac Orthodox Church" },
+    { "name": "Jacobite Syrian Christian Church" },
+    { "name": "French Coptic Orthodox Church" },
+    { "name": "Malabar Independent Syrian Church" },
+    { "name": "British Orthodox Church" }
+  ]
+}

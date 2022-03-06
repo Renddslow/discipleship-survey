@@ -1,0 +1,11 @@
+{
+  "name": "Adventist",
+  "parent": 9,
+  "Denomination": [
+    { "name": "Seventh-day Adventist Church" },
+    { "name": "Church of God (Seventh-Day)" },
+    { "name": "Advent Christian Church" },
+    { "name": "Christadelphians" },
+    { "name": "Seventh Day Adventist Reform Movement" }
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "name": "Pentecostal",
+  "parent": 9,
+  "Denomination": [
+    { "name": "Assemblies of God" },
+    { "name": "Apostolic Church" },
+    { "name": "International Circle of Faith" },
+    { "name": "Fangcheng Fellowship" },
+    { "name": "China Gospel Fellowship" },
+    { "name": "International Church of the Foursquare Gospel" },
+    { "name": "Ethiopian Kale Heywet Church" },
+    { "name": "Church of God in Christ" },
+    { "name": "Church of God (Cleveland, Tennessee)" },
+    { "name": "Jesus Is Lord Church Worldwide" },
+    { "name": "Ethiopian Full Gospel Believers' Church" },
+    { "name": "International Pentecostal Holiness Church" },
+    { "name": "Christian Congregation of Brazil" },
+    { "name": "The Pentecostal Mission" },
+    { "name": "True Jesus Church" },
+    { "name": "The Church of Pentecost" },
+    { "name": "Universal Church of the Kingdom of God" },
+    { "name": "Apostolic Faith Mission of South Africa" },
+    { "name": "Church of God of Prophecy" },
+    { "name": "Association of Pentecostal Churches of Rwanda" },
+    { "name": "God is Love Pentecostal Church" },
+    { "name": "Association of Vineyard Churches" }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "name": "Continuing Anglican movement",
+  "parent": 9,
+  "Denomination": [
+    {
+      "name": "Traditional Anglican Communion"
+    },
+    {
+      "name": "Anglican Church in North America"
+    },
+    {
+      "name": "Reformed Evangelical Anglican Church of South Africa"
+    },
+    {
+      "name": "Anglican Continuing Church"
+    },
+    {
+      "name": "Reformed Episcopal Church"
+    }
+  ]
+}

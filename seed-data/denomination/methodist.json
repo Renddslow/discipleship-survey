@@ -1,0 +1,24 @@
+{
+  "name": "Methodist",
+  "parent": 9,
+  "Denomination": [
+    { "name": "United Methodist Church" },
+    { "name": "African Methodist Episcopal Church" },
+    { "name": "Church of the Nazarene" },
+    { "name": "Methodist Church Nigeria" },
+    { "name": "The Salvation Army" },
+    { "name": "Methodist Church of Southern Africa" },
+    { "name": "African Methodist Episcopal Zion Church" },
+    { "name": "Korean Methodist Church" },
+    { "name": "United Methodist Church of Ivory Coast" },
+    { "name": "Free Methodist Church" },
+    { "name": "Christian Methodist Episcopal Church" },
+    { "name": "Methodist Church Ghana" },
+    { "name": "Methodist Church in India" },
+    { "name": "Methodist Church in Kenya" },
+    { "name": "Wesleyan Church" },
+    { "name": "Methodist Church of Great Britain" },
+    { "name": "Methodist Church in Brazil" },
+    { "name": "Methodist Church of Fiji and Rotuma" }
+  ]
+}

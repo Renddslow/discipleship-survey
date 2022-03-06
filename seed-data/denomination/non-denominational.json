@@ -1,0 +1,10 @@
+{
+  "name": "Non-Denominational",
+  "parent": 9,
+  "Denomination": [
+    { "name": "Calvary Chapel" },
+    { "name": "Christian and Missionary Alliance" },
+    { "name": "Born Again Movement" },
+    { "name": "Church of God (Anderson, Indiana)" }
+  ]
+}

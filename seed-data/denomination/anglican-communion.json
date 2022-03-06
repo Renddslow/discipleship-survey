@@ -1,0 +1,39 @@
+{
+  "name": "Anglican Communion",
+  "parent": 9,
+  "Denomination": [
+    {
+      "name": "Church of England"
+    },
+    {
+      "name": "Church of Nigeria"
+    },
+    {
+      "name": "Church of Uganda"
+    },
+    {
+      "name": "Anglican Church of Kenya"
+    },
+    {
+      "name": "Episcopal Church of South Sudan and Sudan"
+    },
+    {
+      "name": "Church of South India"
+    },
+    {
+      "name": "Anglican Church of Australia"
+    },
+    {
+      "name": "Anglican Church of Southern Africa"
+    },
+    {
+      "name": "Anglican Church of Tanzania"
+    },
+    {
+      "name": "Episcopal Church in the United States"
+    },
+    {
+      "name": "Anglican Church of Rwanda"
+    }
+  ]
+}

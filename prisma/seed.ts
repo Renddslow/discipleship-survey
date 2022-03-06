@@ -17,6 +17,7 @@ const getFilesByType = async (type: string) => {
 
 type DenominationSeed = {
   name: string;
+  parent: number;
   Denomination?: DenominationSeed[];
 };
 
@@ -25,7 +26,7 @@ const denominations = async () => {
     .filter((p) => p)
     .map((p) => JSON.parse(p));
   return Promise.all(
-    seeds.map(({ name, Denomination }) => {
+    seeds.map(({ name, Denomination, parent }) => {
       const create = {
         name,
       };
@@ -34,6 +35,10 @@ const denominations = async () => {
         create.Denomination = {
           create: Denomination,
         };
+      }
+      if (parent) {
+        // @ts-ignore
+        create.denominationId = parent;
       }
       return prisma.denomination.upsert({
         where: { name },

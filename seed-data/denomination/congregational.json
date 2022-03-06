@@ -1,0 +1,9 @@
+{
+  "name": "Congregational",
+  "parent": 9,
+  "Denomination": [
+    { "name": "Evangelical Congregational Church in Angola" },
+    { "name": "United Church of Christ" },
+    { "name": "United Congregational Church of Southern Africa" }
+  ]
+}

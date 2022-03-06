@@ -1,0 +1,15 @@
+{
+  "name": "African Initiated Churches",
+  "parent": 9,
+  "Denomination": [
+    { "name": "Zion Christian Church" },
+    { "name": "Eternal Sacred Order of Cherubim and Seraphim" },
+    { "name": "Kimbanguist Church" },
+    { "name": "Redeemed Christian Church of God" },
+    { "name": "Church of the Lord (Aladura)" },
+    { "name": "Council of African Instituted Churches" },
+    { "name": "Church of Christ Light of the Holy Spirit" },
+    { "name": "African Church of the Holy Spirit" },
+    { "name": "African Israel Church Nineveh" }
+  ]
+}
