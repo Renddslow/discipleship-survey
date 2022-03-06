@@ -1,9 +1,16 @@
+import dotenv from 'dotenv';
+
+dotenv.config();
+
 import polka, { Next } from 'polka';
 import sirv from 'sirv';
 import { IncomingMessage, ServerResponse } from 'http';
 import zlib from 'zlib';
 import { promisify } from 'util';
+
 import makeLink from './makeLink';
+import surveys from './controllers/surveys';
+import subdomainExists from './middlewares/subdomainExists';
 
 const PORT = process.env.PORT || 8080;
 
@@ -34,7 +41,7 @@ const brotli = (req: IncomingMessage, res: ServerResponse, next: Next) => {
 };
 
 polka()
-  .use(serve, brotli, resJson)
+  .use(serve, brotli, resJson, subdomainExists)
   .get('/healthz', (req, res) => {
     res.end('OK');
   })
@@ -43,7 +50,7 @@ polka()
     res.json({
       data: {
         type: 'organization',
-        id: '<>',
+        id: '<abcd>',
         links: {
           surveys: linkify('/surveys'),
           users: linkify('/users'),
@@ -51,4 +58,5 @@ polka()
       },
     });
   })
+  .use('/api', polka().use('/surveys', surveys).use('/users'))
   .listen(PORT, () => console.log(`⛪️ > Running Discipleship Survey server on port ${PORT}`));
