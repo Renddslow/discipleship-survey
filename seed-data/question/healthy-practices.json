@@ -1,0 +1,23 @@
+[
+  {
+    "id": "relational-growth",
+    "type": "sentiment",
+    "label": "There are structures and practices at {{ church.displayName}} that allow relationships to become closer."
+  },
+  {
+    "id": "fairness",
+    "type": "sentiment",
+    "label": "There are structures and practices in place that all {{ church.name }} to deal with conflicts so that everyone is treated fairly."
+  },
+  {
+    "id": "sustenance",
+    "type": "sentiment",
+    "label": "{{ church.displayName }} has structures and practices to as to be able to sustain itself."
+  },
+  {
+    "id": "achievement",
+    "type": "sentiment",
+    "label": "{{ church.name}} has structures and practices that allow it to accomplish its goals."
+  },
+  "// TODO: add more"
+]

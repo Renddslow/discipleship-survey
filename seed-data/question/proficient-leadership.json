@@ -1,0 +1,22 @@
+[
+  {
+    "id": "beneficence",
+    "type": "sentiment",
+    "label": "Those in authority truly care about the well-being of everyone at {{ church.displayName }}."
+  },
+  {
+    "id": "integrity",
+    "type": "sentiment",
+    "label": "Those in authority at {{ church.displayName }} can be relied on to do what is right."
+  },
+  {
+    "id": "competence",
+    "type": "sentiment",
+    "label": "Those in authority have the skills and understanding they need to lead {{ church.displayName }} well."
+  },
+  {
+    "id": "vision",
+    "type": "sentiment",
+    "label": "Those in authority are able to inspire {{ church.displayName }} with their vision."
+  }
+]

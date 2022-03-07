@@ -25,6 +25,7 @@ model Church {
   churchCode     String       @unique @db.VarChar(255)
   denomination   Denomination @relation(fields: [denominationId], references: [id])
   name           String       @db.VarChar(255)
+  shortName      String?      @db.VarChar(255)
   city           String?      @db.VarChar(255)
   state          String?      @db.VarChar(2)
   zipCode        String?      @db.VarChar(5)
@@ -82,6 +83,22 @@ model Survey {
   Reward           Reward[]
   SurveyAnswer     SurveyAnswer[]
   SurveySession    SurveySession[]
+  SurveyFlags      SurveyFlags[]
+}
+
+model Flag {
+  id          Int           @id @default(autoincrement())
+  label       String        @db.VarChar(255)
+  description String        @db.VarChar(255)
+  SurveyFlags SurveyFlags[]
+}
+
+model SurveyFlags {
+  id       Int    @id @default(autoincrement())
+  survey   Survey @relation(fields: [surveyId], references: [id])
+  flag     Flag   @relation(fields: [flagId], references: [id])
+  surveyId Int
+  flagId   Int
 }
 
 model SurveyCompletion {
@@ -115,23 +132,13 @@ model Reward {
 
 // This is a system-level table, no UGC
 model SurveyQuestion {
-  id                   Int                    @id @default(autoincrement())
-  label                String                 @db.Text
-  type                 String                 @db.VarChar(255)
-  createdAt            DateTime               @default(now())
-  SurveyAnswer         SurveyAnswer[]
-  SurveyQuestionOption SurveyQuestionOption[]
-}
-
-// This is a system-level table, no UGC
-model SurveyQuestionOption {
-  id               Int            @id @default(autoincrement())
-  surveyQuestion   SurveyQuestion @relation(fields: [surveyQuestionId], references: [id])
-  label            String
-  type             String
-  value            String
-  createdAt        DateTime       @default(now())
-  surveyQuestionId Int
+  id           Int            @id @default(autoincrement())
+  shortcode    String         @db.VarChar(50)
+  label        String         @db.Text
+  type         String         @db.VarChar(255)
+  sequence     Int            @default(0)
+  createdAt    DateTime       @default(now())
+  SurveyAnswer SurveyAnswer[]
 }
 
 model SurveySession {

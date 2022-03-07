@@ -1,0 +1,22 @@
+[
+  {
+    "id": "satisfaction",
+    "type": "sentiment",
+    "label": "Everyone is satisfied with the way things are at {{ church.displayName }}."
+  },
+  {
+    "id": "value",
+    "type": "sentiment",
+    "label": "Everyone thinks that {{ church.name }} is a good community to be a part of."
+  },
+  {
+    "id": "belonging",
+    "type": "sentiment",
+    "label": "Each person has a sense of beloning at {{ church.displayName }}."
+  },
+  {
+    "id": "welcome",
+    "type": "sentiment",
+    "label": "There is a sense of welcome at {{ church.displayName }} so that it is possible for each person to become more integrated over time."
+  }
+]

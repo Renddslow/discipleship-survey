@@ -1,0 +1,22 @@
+[
+  {
+    "id": "close-relationships",
+    "type": "sentiment",
+    "label": "Everyone has close relationships at {{ church.displayName }}."
+  },
+  {
+    "id": "respect",
+    "type": "sentiment",
+    "label": "Everyone is respected at {{ church.displayName }}."
+  },
+  {
+    "id": "trust",
+    "type": "sentiment",
+    "label": "Everyone at {{ church.displayName }} trusts one another."
+  },
+  {
+    "id": "mutuality",
+    "type": "sentiment",
+    "label": "Everyone contributes to the well-being of others at {{ church.displayName }}."
+  }
+]
