@@ -20,7 +20,7 @@ const compress = promisify(zlib.brotliCompress);
 
 const resJson = (req: IncomingMessage, res: ServerResponse, next: Next) => {
   // @ts-ignore
-  res.json = (value: any, status?: number = 200) => {
+  res.json = (value: any, status: number = 200) => {
     res.setHeader('Content-Type', 'application/json');
     res.statusCode = status;
     // @ts-ignore
@@ -30,9 +30,9 @@ const resJson = (req: IncomingMessage, res: ServerResponse, next: Next) => {
 };
 
 const brotli = (req: IncomingMessage, res: ServerResponse, next: Next) => {
+  res.setHeader('Content-Encoding', 'br');
   // @ts-ignore
   res.send = async (value: string) => {
-    res.setHeader('Content-Encoding', 'br');
     const compressed = await compress(value);
     res.setHeader('Content-Length', compressed.length);
     res.end(compressed);

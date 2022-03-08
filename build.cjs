@@ -17,24 +17,20 @@ build({
   format: 'esm',
   outfile: 'dist/index.js',
   minify: prog.minify,
+  // watch: prog.watch,
+  define: {
+    'process.env.VERSION': `"${require('./package.json').version}"`,
+  },
+});
+
+build({
+  entryPoints: ['client/index.tsx'],
+  bundle: true,
+  platform: 'browser',
+  outfile: 'public/index.js',
+  minify: prog.minify,
   watch: prog.watch,
   define: {
     'process.env.VERSION': `"${require('./package.json').version}"`,
   },
-}).then(() =>
-  build({
-    entryPoints: ['client/index.ts'],
-    bundle: true,
-    platform: 'browser',
-    format: 'esm',
-    outfile: 'public/index.js',
-    minify: prog.minify,
-    watch: prog.watch,
-    jsx: 'transform',
-    jsxFactory: 'React',
-    jsxFragment: 'React.Fragment',
-    define: {
-      'process.env.VERSION': `"${require('./package.json').version}"`,
-    },
-  }),
-);
+});
