@@ -39,18 +39,20 @@ model Church {
 }
 
 model User {
-  id             Int         @id @default(autoincrement())
-  church         Church      @relation(fields: [churchId], references: [id])
-  firstName      String      @db.VarChar(255)
-  lastName       String      @db.VarChar(255)
-  email          String      @db.VarChar(255)
-  password       String      @db.VarChar(255)
-  churchId       Int
-  UserRoles      UserRoles[]
-  SurveysCreated Survey[]    @relation("createdBy")
-  SurveysUpdated Survey[]    @relation("updatedBy")
-  RewardsCreated Reward[]    @relation("reward_createdBy")
-  RewardsUpdated Reward[]    @relation("reward_updatedBy")
+  id              Int              @id @default(autoincrement())
+  church          Church           @relation(fields: [churchId], references: [id])
+  firstName       String           @db.VarChar(255)
+  lastName        String           @db.VarChar(255)
+  email           String           @db.VarChar(255)
+  password        String           @db.VarChar(255)
+  churchId        Int
+  UserRoles       UserRoles[]
+  SurveysCreated  Survey[]         @relation("createdBy")
+  SurveysUpdated  Survey[]         @relation("updatedBy")
+  RewardsCreated  Reward[]         @relation("reward_createdBy")
+  RewardsUpdated  Reward[]         @relation("reward_updatedBy")
+  QuestionCreated SurveyQuestion[] @relation("surveyQuestion_createdBy")
+  QuestionUpdated SurveyQuestion[] @relation("surveyQuestion_updatedBy")
 }
 
 model Role {
@@ -86,6 +88,7 @@ model Survey {
   SurveyAnswer     SurveyAnswer[]
   SurveySession    SurveySession[]
   SurveyFlags      SurveyFlags[]
+  SurveyQuestion   SurveyQuestion[]
 }
 
 model QuestionCategory {
@@ -96,6 +99,7 @@ model QuestionCategory {
   questionCategoryId Int?
   QuestionCategory   QuestionCategory[] @relation("QuestionCategoryToQuestionCategory")
   SurveyQuestion     SurveyQuestion[]
+  Question           Question[]
 }
 
 model Flag {
@@ -143,7 +147,7 @@ model Reward {
 }
 
 // This is a system-level table, no UGC
-model SurveyQuestion {
+model Question {
   id                 Int              @id @default(autoincrement())
   shortcode          String           @db.VarChar(50)
   label              String           @db.Text
@@ -151,8 +155,28 @@ model SurveyQuestion {
   category           QuestionCategory @relation(fields: [questionCategoryId], references: [id])
   sequence           Int              @default(0)
   createdAt          DateTime         @default(now())
-  SurveyAnswer       SurveyAnswer[]
+  updatedAt          DateTime         @updatedAt
   questionCategoryId Int
+  SurveyQuestion     SurveyQuestion[]
+}
+
+model SurveyQuestion {
+  id                 Int               @id @default(autoincrement())
+  survey             Survey            @relation(fields: [surveyId], references: [id])
+  question           Question          @relation(fields: [questionId], references: [id])
+  // This introduces a soft delete whereby a question can be removed
+  // but still audited
+  include            Boolean           @default(true)
+  createdAt          DateTime          @default(now())
+  createdBy          User              @relation("surveyQuestion_createdBy", fields: [createdById], references: [id])
+  createdById        Int
+  updatedAt          DateTime          @updatedAt
+  updatedBy          User              @relation("surveyQuestion_updatedBy", fields: [updatedById], references: [id])
+  updatedById        Int
+  QuestionCategory   QuestionCategory? @relation(fields: [questionCategoryId], references: [id])
+  questionCategoryId Int?
+  surveyId           Int
+  questionId         Int
 }
 
 model SurveySession {
@@ -166,12 +190,10 @@ model SurveySession {
 }
 
 model SurveyAnswer {
-  id               Int            @id @default(autoincrement())
-  survey           Survey         @relation(fields: [surveyId], references: [id])
-  surveyQuestion   SurveyQuestion @relation(fields: [surveyQuestionId], references: [id])
-  session          SurveySession  @relation(fields: [surveySessionId], references: [id])
-  value            String         @db.Text
-  surveyId         Int
-  surveyQuestionId Int
-  surveySessionId  Int
+  id              Int           @id @default(autoincrement())
+  survey          Survey        @relation(fields: [surveyId], references: [id])
+  session         SurveySession @relation(fields: [surveySessionId], references: [id])
+  value           String        @db.Text
+  surveyId        Int
+  surveySessionId Int
 }
