@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Outlet } from 'react-router-dom';
 import styled from 'styled-components';
+import { useOrganization } from '../OrgProvider';
 
 const Wrapper = styled.div`
   background: ${(props) => props.color};
@@ -85,10 +86,12 @@ const COLORS: ColorMap = {
 
 const SurveyWrapper = () => {
   const [questionsLeft, setQuestionsLeft] = useState(2);
-  const [color, setColor] = useState('gray');
+  const { org, isLoading } = useOrganization();
 
-  return (
-    <Wrapper color={COLORS[color].bg}>
+  return isLoading ? (
+    <div>Loading...</div>
+  ) : (
+    <Wrapper color={COLORS[org?.color || 'gray'].bg}>
       <CardWrapper>
         <Row>
           <HeaderFieldWrapper>
@@ -101,7 +104,7 @@ const SurveyWrapper = () => {
             </span>
           </HeaderFieldWrapper>
         </Row>
-        <Card color={COLORS[color].shadow}>
+        <Card color={COLORS[org?.color || 'gray'].shadow}>
           <Outlet />
         </Card>
       </CardWrapper>

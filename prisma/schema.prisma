@@ -26,6 +26,8 @@ model Church {
   denomination   Denomination @relation(fields: [denominationId], references: [id])
   name           String       @db.VarChar(255)
   shortName      String?      @db.VarChar(255)
+  logo           String?      @db.VarChar(255)
+  color          String?      @default("gray") @db.VarChar(50)
   city           String?      @db.VarChar(255)
   state          String?      @db.VarChar(2)
   zipCode        String?      @db.VarChar(5)

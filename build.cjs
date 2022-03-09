@@ -33,4 +33,5 @@ build({
   define: {
     'process.env.VERSION': `"${require('./package.json').version}"`,
   },
+  legalComments: 'none',
 });

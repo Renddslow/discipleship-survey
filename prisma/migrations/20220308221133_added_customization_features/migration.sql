@@ -1,0 +1,3 @@
+-- AlterTable
+ALTER TABLE `Church` ADD COLUMN `color` VARCHAR(50) NULL DEFAULT 'gray',
+    ADD COLUMN `logo` VARCHAR(255) NULL;
