@@ -4,6 +4,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import OrgProvider from './OrgProvider';
 import SurveyWrapper from './routes/SurveyWrapper';
 import SurveyHome from './routes/SurveyHome';
+import SurveyQuestion from './routes/SurveyQuestion';
 
 const App = () => {
   return (
@@ -12,7 +13,7 @@ const App = () => {
         <Routes>
           <Route path="/surveys/:id" element={<SurveyWrapper />}>
             <Route path="" element={<SurveyHome />} />
-            <Route path="questions/:questionId" element={<div>Yo yo</div>} />
+            <Route path="questions/:questionId" element={<SurveyQuestion />} />
             <Route path="completion" element={<div>Completion</div>} />
           </Route>
           <Route path="/admin" element={<div>Admin Header</div>}>

@@ -125,7 +125,9 @@ const SurveyWrapper = () => {
             <span>You are anonymous</span>
             {isHovering && (
               <Tooltip>
-                <p>We won't share any of your responses with anyone at {org?.name}.</p>
+                <p>
+                  We won't connect any of your responses to anything personally identifiable to you.
+                </p>
                 <p>
                   <a href="https://opendiscipleship.com/anonymity" target="_blank">
                     Read more about our anonymity policy

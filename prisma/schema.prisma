@@ -88,6 +88,16 @@ model Survey {
   SurveyFlags      SurveyFlags[]
 }
 
+model QuestionCategory {
+  id                 Int                @id @default(autoincrement())
+  label              String             @db.VarChar(255)
+  description        String             @db.VarChar(255)
+  parent             QuestionCategory?  @relation("QuestionCategoryToQuestionCategory", fields: [questionCategoryId], references: [id])
+  questionCategoryId Int?
+  QuestionCategory   QuestionCategory[] @relation("QuestionCategoryToQuestionCategory")
+  SurveyQuestion     SurveyQuestion[]
+}
+
 model Flag {
   id          Int           @id @default(autoincrement())
   label       String        @db.VarChar(255)
@@ -134,13 +144,15 @@ model Reward {
 
 // This is a system-level table, no UGC
 model SurveyQuestion {
-  id           Int            @id @default(autoincrement())
-  shortcode    String         @db.VarChar(50)
-  label        String         @db.Text
-  type         String         @db.VarChar(255)
-  sequence     Int            @default(0)
-  createdAt    DateTime       @default(now())
-  SurveyAnswer SurveyAnswer[]
+  id                 Int              @id @default(autoincrement())
+  shortcode          String           @db.VarChar(50)
+  label              String           @db.Text
+  type               String           @db.VarChar(255)
+  category           QuestionCategory @relation(fields: [questionCategoryId], references: [id])
+  sequence           Int              @default(0)
+  createdAt          DateTime         @default(now())
+  SurveyAnswer       SurveyAnswer[]
+  questionCategoryId Int
 }
 
 model SurveySession {

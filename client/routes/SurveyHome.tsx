@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import { useOrganization } from '../OrgProvider';
 import Text from '../components/Text';
 import Button from '../components/Button';
+import { useNavigate, useParams } from 'react-router-dom';
 
 const Col = styled.div`
   display: grid;
@@ -20,6 +21,13 @@ const BtnRow = styled.div`
 
 const SurveyHome = () => {
   const { org } = useOrganization();
+  const navigate = useNavigate();
+  const params = useParams();
+
+  const goToFirstQuestion = () => {
+    // filter questions for first sequence
+    navigate(`/surveys/${params.id}/questions/12`);
+  };
 
   return (
     <Col>
@@ -30,8 +38,8 @@ const SurveyHome = () => {
       </Text>
       <Text>
         We want to make sure we're helping you and our {org?.shortName || org?.name} community to
-        grow, and to measure our effectiveness, we want to ask you a few questions periodically to
-        gauge how we're doing.
+        grow. To measure our effectiveness, we want to ask you a few questions periodically to gauge
+        how we're doing.
       </Text>
       <Text>
         This survey will cover questions about your personal practice, key areas of knowledge, and
@@ -43,7 +51,7 @@ const SurveyHome = () => {
       </Text>
       {/* Add mention of rewards from survey fetch */}
       <BtnRow>
-        <Button>Get Started</Button>
+        <Button onClick={goToFirstQuestion}>Get Started</Button>
       </BtnRow>
     </Col>
   );
