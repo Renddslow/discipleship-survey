@@ -1,8 +1,9 @@
 import React from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
-import SurveyWrapper from './routes/SurveyWrapper';
 import OrgProvider from './OrgProvider';
+import SurveyWrapper from './routes/SurveyWrapper';
+import SurveyHome from './routes/SurveyHome';
 
 const App = () => {
   return (
@@ -10,7 +11,7 @@ const App = () => {
       <BrowserRouter>
         <Routes>
           <Route path="/surveys/:id" element={<SurveyWrapper />}>
-            <Route path="" element={<div>Hello world</div>} />
+            <Route path="" element={<SurveyHome />} />
             <Route path="questions/:questionId" element={<div>Yo yo</div>} />
             <Route path="completion" element={<div>Completion</div>} />
           </Route>
