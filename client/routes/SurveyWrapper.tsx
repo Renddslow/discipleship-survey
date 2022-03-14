@@ -23,7 +23,7 @@ const Row = styled.div`
   padding-bottom: 24px;
 `;
 
-const HeaderFieldWrapper = styled.div`
+const HeaderFieldWrapper = styled.div<{ question?: true }>`
   display: grid;
   grid-template-columns: repeat(2, minmax(0, max-content));
   grid-gap: 8px;
@@ -34,7 +34,7 @@ const HeaderFieldWrapper = styled.div`
   span:not(.material-icons-outlined) {
     font-size: 14px;
     font-weight: 600;
-    cursor: help;
+    cursor: ${(props) => (props.question ? 'help' : 'inherit')};
   }
 
   .material-icons-outlined {
@@ -120,7 +120,11 @@ const SurveyWrapper = () => {
     <Wrapper color={COLORS[org?.color || 'gray'].bg}>
       <CardWrapper>
         <Row>
-          <HeaderFieldWrapper onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+          <HeaderFieldWrapper
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
+            question
+          >
             <span className="material-icons-outlined">visibility_off</span>
             <span>You are anonymous</span>
             {isHovering && (

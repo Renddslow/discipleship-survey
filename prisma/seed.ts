@@ -49,6 +49,8 @@ const denominations = async () => {
   );
 };
 
+const questions = async () => {};
+
 const main = async () => {
   await denominations();
 };

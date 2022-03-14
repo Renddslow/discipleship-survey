@@ -94,7 +94,7 @@ model Survey {
 model QuestionCategory {
   id                 Int                @id @default(autoincrement())
   label              String             @db.VarChar(255)
-  description        String             @db.VarChar(255)
+  description        String             @default("") @db.VarChar(255)
   parent             QuestionCategory?  @relation("QuestionCategoryToQuestionCategory", fields: [questionCategoryId], references: [id])
   questionCategoryId Int?
   QuestionCategory   QuestionCategory[] @relation("QuestionCategoryToQuestionCategory")
@@ -149,7 +149,7 @@ model Reward {
 // This is a system-level table, no UGC
 model Question {
   id                 Int              @id @default(autoincrement())
-  shortcode          String           @db.VarChar(50)
+  shortcode          String           @db.VarChar(255)
   label              String           @db.Text
   type               String           @db.VarChar(255)
   category           QuestionCategory @relation(fields: [questionCategoryId], references: [id])

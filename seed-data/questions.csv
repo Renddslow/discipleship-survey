@@ -1,0 +1,54 @@
+Everyone has close relationships at {{ church.displayName }}.,sentiment,,2
+Everyone is respected at {{ church.displayName }}.,sentiment,,2
+Everyone at {{ church.displayName }} trusts one another.,sentiment,,2
+Everyone contributes to the well-being of others at {{ church.displayName }}.,sentiment,,2
+There are structures and practices at {{ church.displayName}} that allow relationships to become closer.,sentiment,,3
+There are structures and practices in place that all {{ church.name }} to deal with conflicts so that everyone is treated fairly.,sentiment,,3
+{{ church.displayName }} has structures and practices to as to be able to sustain itself.,sentiment,,3
+{{ church.name}} has structures and practices that allow it to accomplish its goals.,sentiment,,3
+Those in authority truly care about the well-being of everyone at {{ church.displayName }}.,sentiment,,4
+Those in authority at {{ church.displayName }} can be relied on to do what is right.,sentiment,,4
+Those in authority have the skills and understanding they need to lead {{ church.displayName }} well.,sentiment,,4
+Those in authority are able to inspire {{ church.displayName }} with their vision.,sentiment,,4
+Everyone is satisfied with the way things are at {{ church.displayName }}.,sentiment,,5
+Everyone thinks that {{ church.name }} is a good community to be a part of.,sentiment,,5
+Each person has a sense of beloning at {{ church.displayName }}.,sentiment,,5
+There is a sense of welcome at {{ church.displayName }} so that it is possible for each person to become more integrated over time.,sentiment,,5
+{{ church.possessive }} shared purpose or mission is clear to everyone.,sentiment,,6
+{{ church.displayName }} contributes to the world to make it a better place.,sentiment,,6
+Everyone is need for {{ church.displayName }} to fulfill its goals and purposes.,sentiment,,6
+{{ church.displayName }} is able to do more with everyone together than we could individually.,sentiment,,6
+"Overall, how satisfied are you with life as a whole these days?",nps,,7
+"In general, how happy or unhappy do you usually feel.",nps,,7
+How would you rate your overall mental health?,nps,,8
+"In general, how would you rate your physical health?",nps,,8
+I am content with the condition of my faith life.,sentiment,,9
+I understand my purpose in life. ,sentiment,,9
+I am content with my friendships and relationships.,sentiment,,10
+I am able to give up happiness now for greater happiness later. ,10
+"How often do you worry about safety, food, or housing?",nps,,11
+How often do you worry being able to meet monthly living expenses?,nps,,11
+I practice generous giving.,sentiment,,12
+Over the past {{ survey.displayInterval }} I have given any amount to {{ church.name }}.,boolean,,12
+Over the past {{ survey.displayInterval }} I have given any amount to a ministry or charity other than {{ church.displayName }}.,option,,12
+"Over the past {{ survey.displayInterval }}, how much have you given away?",currency,,12
+"I engage with Scripture on a regular basis, outside of a church service.",sentiment,,14
+How often did you read Scripture in the last {{ survey.displayInterval }}?,nps,,14
+I have read Scripture from cover-to-cover at least once.,boolean,,14
+I find regular engagement with Scripture important.,sentiment,,14
+I spend regular time in prayer.,sentiment,,15
+How much time in a given week do you spend in focused prayer.,sentiment,,15
+"I regularly pray for the needs of {{ church.displayName }}, its leadership, and the church family.",sentiment,,15
+I desire Jesus to be first in my life.,sentiment,,16
+I feel closer to God when I worship at {{ church.name }}.,sentiment,,18
+I am able to respond to what God is doing in my life through worship at {{ church.displayName }}.,sentiment,,18
+{{ church.displayName }} has rhythms of prayer which I can participate in.,sentiment,,19
+I know that the pastors and leaders at {{ church.displayName }} are in regular prayer for my family.,sentiment,,19
+{{ church.displayName }} believes in the power and effectiveness of prayer.,sentiment,,19
+I have seen the power of prayer at work in {{ church.displayName }}.,sentiment,,19
+{{ church.name }} is an essential partner in my spiritual formation.,sentiment,,20
+My next steps for growth at {{ church.name }} are clear to me.,sentiment,,20
+Scripture is central to and deeply informs the teaching and decisions of {{ church.name }}. ,sentiment,,21
+What is one area you feel like {{ church.displayName }} has helped you to grow or transform in the last {{ survey.displayInterval }}?,short-answer,,21
+What is one area you would like to see {{ church.displayName }} help you grow in over the next {{ survey.displayInterval }}?,short-answer,,21
+"How likely would you be to recommend {{ church.name }} to a friend, a family member, or a colleague?",nps,,17
