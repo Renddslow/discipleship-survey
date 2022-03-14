@@ -1,3 +1,4 @@
+label,type,sequence,category
 Everyone has close relationships at {{ church.displayName }}.,sentiment,,2
 Everyone is respected at {{ church.displayName }}.,sentiment,,2
 Everyone at {{ church.displayName }} trusts one another.,sentiment,,2
@@ -25,7 +26,7 @@ How would you rate your overall mental health?,nps,,8
 I am content with the condition of my faith life.,sentiment,,9
 I understand my purpose in life. ,sentiment,,9
 I am content with my friendships and relationships.,sentiment,,10
-I am able to give up happiness now for greater happiness later. ,10
+I am able to give up happiness now for greater happiness later.,sentiment,,10
 "How often do you worry about safety, food, or housing?",nps,,11
 How often do you worry being able to meet monthly living expenses?,nps,,11
 I practice generous giving.,sentiment,,12

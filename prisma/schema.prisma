@@ -149,7 +149,7 @@ model Reward {
 // This is a system-level table, no UGC
 model Question {
   id                 Int              @id @default(autoincrement())
-  shortcode          String           @db.VarChar(255)
+  shortcode          String           @unique @db.VarChar(255)
   label              String           @db.Text
   type               String           @db.VarChar(255)
   category           QuestionCategory @relation(fields: [questionCategoryId], references: [id])
